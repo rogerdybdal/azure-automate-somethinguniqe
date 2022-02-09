@@ -134,4 +134,6 @@ while ((sumPoengKortstokk -kortstokk $magnus) -le (sumPoengKortstokk -kortstokk 
 if ((sumPoengKortstokk -kortstokk $magnus) -gt $blackjack) {
     skrivUtResultat -vinner "Meg" -kortStokkMagnus $magnus -kortStokkMeg $meg
     exit
+}elseif ((sumPoengKortstokk -kortstokk $magnus) -gt (sumPoengKortstokk -kortstokk $meg)){   
+    skrivUtResultat -vinner "Magnus" -kortStokkMagnus $magnus -kortStokkMeg $meg
 }
