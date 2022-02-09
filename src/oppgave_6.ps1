@@ -67,25 +67,15 @@ Write-Output "Poengsum: $(sumPoengKortstokk -kortstokk $kortstokk)"
 
 # Tilordne 2 kort index 0 og index 1, til $meg. Dvs meg bestrakes som en kortstokk :-)
 $meg = $kortstokk[0..1]
-Write-Output "meg: $(kortStokkTilStreng -kortstokk $meg) poeng: $(sumPoengKortstokk -kortstokk $meg)"
+Write-Output "meg: $(kortStokkTilStreng -kortstokk $meg)"
 
 # Fjern 2 kort fra kortstokken som er gitt til $meg
 $kortstokk = $kortstokk[2..$kortstokk.Count]
 
 # Tilordne 2 kort index 0 og index 1, til $magnus. Dvs magnus bestrakes som en kortstokk :-)
 $magnus = $kortstokk[0..1]
-Write-Output "magnus: $(kortStokkTilStreng -kortstokk $magnus) poeng: $(sumPoengKortstokk -kortstokk $magnus)"
+Write-Output "magnus: $(kortStokkTilStreng -kortstokk $magnus)"
 
 # Fjern 2 kort fra kortstokken som er gitt til $magnus
 $kortstokk = $kortstokk[2..$kortstokk.Count]
 Write-Output "Kortstokk: $(kortStokkTilStreng -kortstokk $kortstokk)"
-
-#Hvem vant ?
-if ($(sumPoengKortstokk -kortstokk $meg) -gt $(sumPoengKortstokk -kortstokk $magnus)) {
-    Write-Host "Du vant!"
-}else{
-    Write-Host "Magnus vant!"
-}
-
-
-
