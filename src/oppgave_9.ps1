@@ -110,3 +110,28 @@ elseif ((sumPoengKortstokk -kortstokk $magnus) -eq $blackjack) {
     skrivUtResultat -vinner "magnus" -kortStokkMagnus $magnus -kortStokkMeg $meg
     exit
 }
+
+# ...
+
+while ((sumPoengKortstokk -kortstokk $meg) -lt 17) {
+    $meg += $kortstokk[0]
+    $kortstokk = $kortstokk[1..$kortstokk.Count]
+}
+
+if ((sumPoengKortstokk -kortstokk $meg) -gt $blackjack) {
+    skrivUtResultat -vinner "Magnus" -kortStokkMagnus $magnus -kortStokkMeg $meg
+    exit
+}
+
+# ...
+
+while ((sumPoengKortstokk -kortstokk $magnus) -le (sumPoengKortstokk -kortstokk $meg)) {
+    $magnus += $kortstokk[0]
+    $kortstokk = $kortstokk[1..$kortstokk.Count]
+}
+
+### Magnus taper spillet dersom poengsummen er høyere enn 21
+if ((sumPoengKortstokk -kortstokk $magnus) -gt $blackjack) {
+    skrivUtResultat -vinner "Meg" -kortStokkMagnus $magnus -kortStokkMeg $meg
+    exit
+}

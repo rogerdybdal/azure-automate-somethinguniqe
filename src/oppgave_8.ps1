@@ -110,3 +110,15 @@ elseif ((sumPoengKortstokk -kortstokk $magnus) -eq $blackjack) {
     skrivUtResultat -vinner "magnus" -kortStokkMagnus $magnus -kortStokkMeg $meg
     exit
 }
+
+# ...
+
+while ((sumPoengKortstokk -kortstokk $meg) -lt 17) {
+    $meg += $kortstokk[0]
+    $kortstokk = $kortstokk[1..$kortstokk.Count]
+}
+
+if ((sumPoengKortstokk -kortstokk $meg) -gt $blackjack) {
+    skrivUtResultat -vinner "Magnus" -kortStokkMagnus $magnus -kortStokkMeg $meg
+    exit
+}
