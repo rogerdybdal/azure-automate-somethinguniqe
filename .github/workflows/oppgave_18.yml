@@ -2,7 +2,6 @@ name: oppgave 18
 on:
   workflow_dispatch:
     
-
 jobs:
   job1:
     defaults:
@@ -23,7 +22,7 @@ jobs:
       - name: 'Run cleanup script'
         uses: azure/powershell@v1
         with:
-          inlineScript: .\funcApp\cleanup.ps1 -resourceGroupName 'Roger-workshop-ng7eykxaq5zvi'
+          inlineScript: .\src\funcApp\cleanup.ps1 -resourceGroupName 'Roger-workshop-ng7eykxaq5zvi'
           azPSVersion: "latest"
 
       - name: 'logout from azure'
